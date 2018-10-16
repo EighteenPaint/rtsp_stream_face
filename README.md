@@ -13,7 +13,7 @@
     			sudo apt-get install libopencv-dev 
 
     			sudo apt-get install python-opencv #这里安装的是python2版本的 （二选一，取决于你使用的python版本） 
-    			
+
     			sudo apt-get install python3-opencv #这里安装的是python3版本的（二选一，取决于你使用的python版本）
   		dlib：
   			$ sudo apt-get install build-essential cmake 
@@ -25,3 +25,4 @@
 参考资料：
 http://developer.51cto.com/art/201801/564529.htm
 https://blog.csdn.net/hui3909/article/details/53435379
+https://www.imooc.com/article/67961?block_id=tuijian_wz
