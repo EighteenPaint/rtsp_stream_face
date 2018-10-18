@@ -4,12 +4,13 @@
   		python2.7
  		opencv2：
  			    $ pip install numpy 
-     
+ 			    
     			$ pip install scipy 
      
     			$ pip install opencv-python 
      
     			$ pip install dlib 
+
     			sudo apt-get install libopencv-dev 
 
     			sudo apt-get install python-opencv #这里安装的是python2版本的 （二选一，取决于你使用的python版本） 
