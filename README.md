@@ -22,8 +22,13 @@
     		$ sudo apt-get install libgtk-3-dev 
      
     		$ sudo apt-get install libboost-all-dev 
+
+        caffe 安装
+        
 模型包联系：924633452@qq.com
 参考资料：
 http://developer.51cto.com/art/201801/564529.htm
 https://blog.csdn.net/hui3909/article/details/53435379
 https://www.imooc.com/article/67961?block_id=tuijian_wz
+https://blog.csdn.net/qq_28818465/article/details/60427705
+https://blog.csdn.net/haoji007/article/details/52081251
