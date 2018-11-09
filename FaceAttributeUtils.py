@@ -9,7 +9,7 @@ sys.path.insert(0, caffe_root + 'python')
 import caffe
 
 
-def predict(src_folder):
+def predict(base64str):
     mean_filename = '/home/benny/caffe/models/age_gender_caffe/mean.binaryproto'
     proto_data = open(mean_filename, "rb").read()
     a = caffe.io.caffe_pb2.BlobProto.FromString(proto_data)
@@ -34,34 +34,12 @@ def predict(src_folder):
     age_list = ['(0, 2)', '(4, 6)', '(8, 12)', '(15, 20)', '(25, 32)', '(38, 43)', '(48, 53)', '(60, 100)']
     gender_list = ['Man', 'Female']
     gender_folder = 'male'
-    input_image = caffe.io.load_image(src_folder)
+    input_image = caffe.io.load_image("/home/benny/PycharmProjects/video-project/face_test/test.jpg")
+    input_image = base64str
     prediction = age_net.predict([input_image])
     print 'predicted age:', age_list[prediction[0].argmax()]
     prediction = gender_net.predict([input_image])
     print 'predicted gender:', gender_list[prediction[0].argmax()]
-    # for people_folder in os.listdir(src_folder):
-    #     people_path = src_folder + people_folder + '/'
-    #     for img_file in os.listdir(people_path):
-    #         img_path = people_path + img_file
-    #         input_image = caffe.io.load_image(img_path)
-    #         #            prediction = age_net.predict([input_image])
-    #         #            print 'predicted age:', age_list[prediction[0].argmax()]
-    #         prediction = gender_net.predict([input_image])
-    #         #            print 'predicted gender:', gender_list[prediction[0].argmax()]
-    #         if gender_list[prediction[0].argmax()] != gender_folder:
-    #             print 'processing img:', img_path, 'gender:', gender_list[
-    #                 prediction[0].argmax()], ' prediction:', prediction
-    #             if gender_folder == 'Male':
-    #                 shutil.copy(img_path, src_folder + '../maleout')
-    #             elif gender_folder == 'Female':
-    #                 shutil.copy(img_path, src_folder + '../femaleout')
+    return age_list[prediction[0].argmax()],gender_list[prediction[0].argmax()]
 
 
-if __name__ == '__main__':
-    # if len(sys.argv) != 2:
-    #     print 'Usage: python %s src_folder' % (sys.argv[0])
-    #     sys.exit()
-    # src_folder = sys.argv[1]
-    # if not src_folder.endswith('/'):
-    #     src_folder += '/'
-    predict('pictures/p1/test.jpg')
